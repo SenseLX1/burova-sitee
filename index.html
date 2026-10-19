@@ -253,14 +253,47 @@ input[type=range]::-moz-range-thumb:hover{ transform:scale(1.25); }
 .faq-a{ color:var(--ink-dim); font-size:.95rem; padding-bottom:20px; max-width:64ch; font-weight:500; }
 
 /* ---- финальный CTA ---- */
-.offer{ padding:88px 0 96px; text-align:center; background:radial-gradient(ellipse 60% 100% at 50% 0%, rgba(255,176,32,.1), transparent 70%); border-top:1px solid var(--line); }
+.offer{ scroll-margin-top:110px; padding:88px 0 96px; text-align:center; background:radial-gradient(ellipse 60% 100% at 50% 0%, rgba(255,176,32,.1), transparent 70%); border-top:1px solid var(--line); }
 .offer h2{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.7rem, 2.4vw + 1rem, 2.4rem); line-height:1.25; max-width:22ch; margin:0 auto 20px; }
 .offer p{ color:var(--ink-dim); max-width:52ch; margin:0 auto 14px; font-size:1.03rem; }
 .offer .no-obligation{ font-weight:700; color:var(--ink); margin-bottom:30px; }
-.offer-sign{ margin-top:40px; padding-top:28px; border-top:1px solid var(--line); display:flex; flex-direction:column; align-items:center; }
-.offer-sign .brand-name{ font-size:1.2rem; display:block; margin-bottom:6px; }
-.offer-sign .tagline{ display:block; margin-bottom:22px; }
+.offer-sign{ margin:40px auto 0; width:min(100%,440px); display:flex; flex-direction:column; align-items:center; }
+.offer-contact-card{
+  position:relative;isolation:isolate;width:100%;padding:30px 24px 28px;border-radius:22px;
+  border:1px solid rgba(190,202,255,.16);
+  background:radial-gradient(ellipse at 50% 0%,rgba(118,135,210,.10) 0%,rgba(28,37,86,.12) 42%,rgba(5,8,28,.30) 100%);
+  -webkit-backdrop-filter:blur(22px) saturate(125%);backdrop-filter:blur(22px) saturate(125%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -22px 42px rgba(0,0,0,.12),0 18px 48px rgba(0,0,0,.16);
+}
+.offer-contact-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;background:linear-gradient(135deg,rgba(255,255,255,.045),transparent 34%,rgba(0,0,0,.12) 100%);}
+.offer-contact-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;z-index:-2;box-shadow:0 0 36px rgba(0,0,0,.12);}
+.offer-contact-title{font-family:var(--font-display);font-size:1.4rem;font-weight:850;margin:0 0 8px;color:var(--ink);}
+.offer-sign .brand-name{font-size:1rem;display:block;margin-bottom:4px;color:var(--ink);font-weight:800}
+.offer-sign .tagline{display:block;margin-bottom:20px;font-size:.9rem;color:var(--ink-dim);font-weight:600}
+@media(max-width:480px){.offer-contact-card{padding:24px 18px}}
 
+ .contact-buttons{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:4px}
+.contact-icon-btn{width:58px;height:58px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line-strong);cursor:pointer;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.contact-icon-btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.2);border-color:var(--amber-light)}
+.telegram-btn{background:#229ED9}
+.telegram-btn svg{width:29px;height:29px;fill:white}
+.max-btn{background:#fff;color:#fff}
+.max-mark,.max-modal-icon{display:inline-flex;align-items:center;justify-content:center}
+.max-mark img{width:34px;height:34px;display:block}
+.max-modal-icon img{width:40px;height:40px;display:block}
+.max-modal-icon{width:54px;height:54px;border-radius:15px;background:#fff}
+.contact-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:24px}
+.contact-modal.is-open{display:flex}
+.contact-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(6px)}
+.contact-modal-card{position:relative;z-index:1;width:min(100%,420px);padding:34px 28px 26px;text-align:center;border:1px solid var(--line-strong);border-radius:22px;background:var(--surface, #171717);box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.contact-modal-close{position:absolute;top:12px;right:16px;border:0;background:none;color:var(--ink);font-size:1.8rem;cursor:pointer}
+.max-modal-icon{display:inline-flex;width:54px;height:54px;align-items:center;justify-content:center;border-radius:15px;background:linear-gradient(135deg,#635BFF,#2F80ED);margin-bottom:14px}
+.contact-modal-card h3{font-family:var(--font-display);font-size:1.35rem;margin:0 0 10px;color:var(--ink)}
+.contact-modal-card p{color:var(--ink-dim);margin:0 0 12px}
+.max-phone{display:block;font-size:1.35rem;font-weight:800;color:var(--amber-light);text-decoration:none;margin:14px 0 20px}
+.copy-max-phone{border:0}
+.copy-feedback{min-height:1em;font-size:.85rem!important;margin-top:10px!important}
+@media(max-width:480px){.contact-icon-btn{width:54px;height:54px}.contact-modal-card{padding:32px 20px 22px}}
 footer{ padding:40px 0; border-top:1px solid var(--line); }
 footer .wrap{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; font-size:.85rem; color:var(--ink-faint); font-weight:600; }
 footer .brand-name{ font-size:1rem; }
@@ -498,10 +531,10 @@ footer .btn{ margin-top:6px; }
     <div class="wrap">
       <div class="section-head reveal"><h2>Частые вопросы</h2></div>
       <div class="faq-list reveal">
-        <div class="faq-item panel-border"><div class="panel"><button class="faq-q" type="button">Сколько это стоит?<span class="faq-icon"></span></button><div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">От 35 000 ₽ за диагностику до от 120 000 ₽ за аудит с внедрением. Самый частый выбор — операционный аудит за 75 000 ₽.</p></div></div></div></div>
+        <div class="faq-item panel-border"><div class="panel"><button class="faq-q" type="button">Сколько это стоит?<span class="faq-icon"></span></button><div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">От 35 000 ₽ за диагностику до 120 000 ₽ за аудит с внедрением. Самый частый выбор — операционный аудит за 75 000 ₽.</p></div></div></div></div>
         <div class="faq-item panel-border"><div class="panel"><button class="faq-q" type="button">Аудит удалённо или очно?<span class="faq-icon"></span></button><div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Работаю в обоих форматах — 8 из 17 лет опыта в полностью удалённом операционном управлении.</p></div></div></div></div>
         <div class="faq-item panel-border"><div class="panel"><button class="faq-q" type="button">У нас уже есть операционный директор — это имеет смысл?<span class="faq-icon"></span></button><div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Да: аудит — независимый взгляд со стороны, он не заменяет вашу команду управления, а усиливает её.</p></div></div></div></div>
-        <div class="faq-item panel-border"><div class="panel"><button class="faq-q" type="button">Данные бизнеса останутся конфиденциальными?<span class="faq-icon"></span></button><div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Да, все материалы аудита обсуждаются только с вами и не передаются третьим лицам.</p></div></div></div></div>
+        <div class="faq-item panel-border"><div class="panel"><button class="faq-q" type="button">Данные бизнеса останутся конфиденциальными?<span class="faq-icon"></span></button><div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Да. Перед началом работы подписываем NDA — соглашение о неразглашении. Материалы аудита остаются конфиденциальными и не передаются третьим лицам.</p></div></div></div></div>
         <div class="faq-item panel-border"><div class="panel"><button class="faq-q" type="button">Что если сейчас нет свободного окна?<span class="faq-icon"></span></button><div class="faq-a-wrap"><div class="faq-a-inner"><p class="faq-a">Сейчас открыто одно окно на аудит. Если оно уже занято к моменту обращения — оставлю вас в очереди на следующее.</p></div></div></div></div>
       </div>
     </div>
@@ -514,15 +547,35 @@ footer .btn{ margin-top:6px; }
       <p class="reveal">Расскажите, что сейчас происходит в вашем онлайн-бизнесе. Я задам несколько вопросов, определю, где вероятнее всего находится основное ограничение, и скажу, какой формат работы имеет смысл именно в вашей ситуации.</p>
       <p class="no-obligation reveal">Без обязательств. Без длинных презентаций.</p>
       <div class="offer-sign reveal">
-        <span class="brand-name">БУРОВА</span>
-        <span class="tagline">Бурим до причины. Достаём результат.</span>
-        <!-- ЗАМЕНИТЕ href на реальный контакт -->
-        <a href="https://t.me/username" target="_blank" rel="noopener" class="btn btn-primary">Обсудить проект →</a>
+        <div class="offer-contact-card">
+          <h3 class="offer-contact-title">Обсудить аудит</h3>
+          <span class="brand-name">БУРОВА</span>
+          <span class="tagline">Бурим до причины. Достаём результат.</span>
+          <div class="contact-buttons" aria-label="Связаться с Буровой">
+          <a href="https://t.me/Doch_Ivana_ya" target="_blank" rel="noopener noreferrer" class="contact-icon-btn telegram-btn" aria-label="Написать в Telegram" title="Telegram">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.93 3.05a1.1 1.1 0 0 0-1.15-.17L2.1 10.12c-1.28.5-1.26 1.2-.23 1.52l4.8 1.5 1.83 5.7c.23.7.12.98.83.98.55 0 .8-.25 1.1-.55l2.33-2.27 4.85 3.58c.9.5 1.55.24 1.78-.83l3.17-15.02c.33-1.3-.48-1.87-.63-1.68ZM8.05 12.8l10.1-6.37c.5-.3.96-.15.58.2l-8.35 7.53-.33 3.55-2-4.91Z"/></svg>
+          </a>
+          <button type="button" class="contact-icon-btn max-btn" id="maxContactOpen" aria-label="Связаться в MAX" title="MAX"><span class="max-mark"><img src="https://maxspravka.ru/brand-assets/max/generated/max-latin-icon-color.svg" alt="Логотип MAX"></span></button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
+
+<div class="contact-modal" id="maxContactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="maxModalTitle">
+  <div class="contact-modal-backdrop" data-close-max></div>
+  <div class="contact-modal-card panel-border">
+    <button type="button" class="contact-modal-close" data-close-max aria-label="Закрыть окно">×</button>
+    <span class="max-modal-icon"><img src="https://maxspravka.ru/brand-assets/max/generated/max-latin-icon-color.svg" alt="Логотип MAX"></span>
+    <h3 id="maxModalTitle">Напишите в MAX</h3>
+    <p>Свяжитесь с нами в MAX по номеру:</p>
+    <a class="max-phone" href="tel:+79154037772">8 915 403-77-72</a>
+    <button type="button" class="btn btn-primary copy-max-phone" id="copyMaxPhone">Скопировать номер</button>
+    <p class="copy-feedback" id="copyMaxFeedback" aria-live="polite"></p>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -608,6 +661,25 @@ if (revenueSlider && teamSlider) {
   }
   [revenueSlider, teamSlider].forEach(s => s.addEventListener('input', updateCalc));
   updateCalc();
+}
+
+
+const maxModal = document.getElementById('maxContactModal');
+const maxOpen = document.getElementById('maxContactOpen');
+const maxPhone = '89154037772';
+function closeMaxModal(){ if(maxModal){maxModal.classList.remove('is-open');maxModal.setAttribute('aria-hidden','true');} }
+if(maxOpen && maxModal){
+  maxOpen.addEventListener('click',()=>{maxModal.classList.add('is-open');maxModal.setAttribute('aria-hidden','false');});
+  maxModal.querySelectorAll('[data-close-max]').forEach(el=>el.addEventListener('click',closeMaxModal));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMaxModal();});
+}
+const copyMaxPhone=document.getElementById('copyMaxPhone');
+if(copyMaxPhone){
+  copyMaxPhone.addEventListener('click',async()=>{
+    const feedback=document.getElementById('copyMaxFeedback');
+    try{await navigator.clipboard.writeText(maxPhone);feedback.textContent='Номер скопирован';}
+    catch(e){feedback.textContent='Номер для копирования: '+maxPhone;}
+  });
 }
 </script>
 
